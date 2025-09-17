@@ -1,3 +1,6 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import os
 import streamlit as st
 from dotenv import load_dotenv
@@ -126,4 +129,5 @@ def main():
                 st.session_state.messages.append({"role": "assistant", "content": error_message})
 
 if __name__ == "__main__":
+
     main()
